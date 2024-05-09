@@ -1,0 +1,64 @@
+---
+title: "errors"
+author: "gokul"
+date: "2024-05-08"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+
+
+trees_bicuar <- read.csv(here("CC-5-fun-and-loop-master", "trees_bicuar.csv"))
+
+trees_mlunguya <- read.csv(here("CC-5-fun-and-loop-master", "trees_mlunguya.csv"))
+
+head(trees_bicuar)
+
+exmp <- function(a,b){
+  a+b
+}
+
+exmp(a=10, b=20)
+basal.area <- function(x) {
+  (pi*x^2)/40000
+} 
+basal.area(x= trees_bicuar$diam)
+
+basal.area <- function(...) {
+  (pi*c(...)^2)/40000
+}
+basal.area(trees_bicuar$diam, trees_mlunguya$diam)
+
+trees_bicuar$ba <- basal.area(trees_bicuar$diam)
+trees_mlunguya$ba <- basal.area(trees_mlunguya$diam)
+
+trees <- list("trees_bicuar" = trees_bicuar, "trees_mlunguya" = trees_mlunguya)
+
+for (i in 1:length(trees)) {
+  trees[[i]]$ba <- basal.area(trees[[i]]$diam)
+}
+
+for (i in 1:length(trees)) {
+  trees[[i]]$ba <- basal.area(trees[[i]]$diam)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+```
+basal.area <- function(x) {
+  (pi*x^2)/40000
+} 
+basal.area(x= trees_bicuar$diam)
