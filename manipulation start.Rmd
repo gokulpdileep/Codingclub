@@ -1,0 +1,28 @@
+---
+title: "Data manipulation"
+author: "gokul"
+date: "2024-05-10"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+setwd("C:/Users/pdgok/OneDrive/Documents/R Language/Codingclub")
+elongation <- read.csv("EmpetrumElongation.csv")
+head(elongation)
+length(unique(elongation$Indiv))
+elongation[2,5]
+
+elongation[elongation$Indiv == 603, ]
+
+elongation[elongation$Zone < 4, ]
+
+elongation[elongation$Zone == 6 | elongation$Zone == 2,]
+
+
+
+
+```
+
